@@ -175,10 +175,11 @@ function register() {
     };
 }
 
-module.exports = register;
-module.exports.floodFillPassable = floodFillPassable;
-module.exports.detectChokePoints = detectChokePoints;
-module.exports.defineRoom = defineRoom;
-module.exports.markSweepCoverage = markSweepCoverage;
-module.exports.updateRoomSafety = updateRoomSafety;
-module.exports.getRoomCorners = getRoomCorners;
+// Object.assign() in ONE statement (not separate trailing assignments) -
+// see @openrock/pathfinding's header for why: esbuild's tree-shaking was
+// caught, via a real BDS run, silently dropping separate
+// `module.exports.foo = foo` statements as unreachable dead code.
+module.exports = Object.assign(register, {
+    floodFillPassable, detectChokePoints,
+    defineRoom, markSweepCoverage, updateRoomSafety, getRoomCorners,
+});
