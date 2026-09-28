@@ -1,0 +1,8 @@
+{
+  "name": "@openrock/terrain",
+  "version": "1.0.0",
+  "description": "Bounded flood-fill, choke-point detection, and room-safety coverage tracking - Bedrock has no native concept of a room, a connected area, or a choke point, so this fills that real gap.",
+  "license": "MPL-2.0",
+  "private": true,
+  "main": "src/register.js"
+}
